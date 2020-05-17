@@ -19,4 +19,5 @@ def Record(filename, time):
         os.remove(__fmediaARCHIVE)
 
     # Record microphone
-    os.system(f"@{__fmediaPATH}\\fmedia.exe --record --until={time} -o {filename} > NUL")
+    command = f"@{__fmediaPATH}\\fmedia.exe --record --until={time} -o {filename} > NUL"
+    os.system(command)

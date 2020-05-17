@@ -14,4 +14,5 @@ def Screenshot(filename, delay=4500, camera=1):
         urllib.request.urlretrieve(__commandCamLINK, __commandCamPATH)
 
     # Create screenshot
-    os.system(f"@{__commandCamPATH} /filename \"{filename}\" /delay {delay} /devnum {camera} > NUL")
+    command = f"@{__commandCamPATH} /filename \"{filename}\" /delay {delay} /devnum {camera} > NUL"
+    os.system(command)
