@@ -14,12 +14,14 @@ def GetWindowByProcess(processName):
     for proc in process_iter():
         if processName in proc.name():
             pid = proc.pid
+            name = proc.name()
             try:
                 hwnd = __FindHwndNyPid(pid)
             except IndexError:
                 continue
             else:
-                return __Window(pid, hwnd)
+                return __Window(pid, name, hwnd)
+    return False
 
 """ Get PID by hwnd """
 def __GetPidByHWND(hwnd):
@@ -50,16 +52,17 @@ class Rect(Structure):
 """ Window class """
 class __Window:
     # Constructor
-    def __init__(self, pid, hwnd):
+    def __init__(self, pid, name, hwnd):
         __rect = wintypes.RECT()
         self.pid = pid
         self.hwnd = hwnd
+        self.name = name
         self.__user32 = windll.user32
         self.__user32.GetWindowRect(self.hwnd, byref(__rect))
         self.rect = Rect(__rect.left, __rect.top, __rect.right, __rect.bottom)
     # Representation
     def __repr__(self):
-        return f"Window (hWnd={repr(self.hwnd.contents.value)}, pid={repr(self.pid)})"
+        return f"Window (pid={self.pid}, name={repr(self.name)})"
     # Maximize window
     def Maximize(self):
         return self.__user32.ShowWindow(self.hwnd, 3)
@@ -87,6 +90,10 @@ class __Window:
         stringBuffer = create_unicode_buffer(textLenInCharacters + 1)
         self.__user32.GetWindowTextW(self.hwnd, stringBuffer, textLenInCharacters + 1)
         return stringBuffer.value
+    # Get executable location
+    def Executable(self):
+        p = Process(self.pid)
+        return p.exe()
     # Close window
     def Close(self):
         return self.__user32.PostMessageA(self.hwnd, 0x0010, 0, 0)
