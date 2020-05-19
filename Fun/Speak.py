@@ -1,6 +1,6 @@
 
 # Import modules
-import win32com.client as __wincl
+import win32com.client as __wincl # pip install pywin32
 __sapi = __wincl.Dispatch("SAPI.SpVoice")
 
 """ Say text """

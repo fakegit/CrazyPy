@@ -26,7 +26,8 @@ def GetAll():
             length = GetWindowTextLength(hwnd)
             buff = create_unicode_buffer(length + 1)
             GetWindowText(hwnd, buff, length + 1)
-            titles.append(buff.value)
+            if buff.value:
+                titles.append(buff.value)
         return True
     EnumWindows(EnumWindowsProc(foreach_window), 0)
     return titles 
