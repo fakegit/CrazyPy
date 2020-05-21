@@ -3,7 +3,6 @@
 ``` python
 import Harmful.BlockInput
 import Harmful.Bsod
-import Harmful.CriticalProcess
 import Harmful.Monitor
 import Harmful.Power
 
@@ -11,13 +10,6 @@ import Harmful.Power
 Harmful.BlockInput.Block(20)
 # Create blue screen of death
 Harmful.Bsod.bsod()
-
-# Set current process is critical
-# When this process is completed, a blue screen of death will appear.
-# Admin rights is required
-Harmful.CriticalProcess.Set()
-# Set current process is not critical 
-Harmful.CriticalProcess.Unset()
 
 # Disable monitor
 Harmful.Monitor.Off()

