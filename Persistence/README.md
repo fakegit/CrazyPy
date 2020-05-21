@@ -26,6 +26,6 @@ Persistence.Attrib.SetHidden("file.exe")
 Persistence.Attrib.SetSystem("file.exe")
 
 # Change file modification date
-# To 'Mon Dec  2 20:02:47 2002' ()
+# To 'Mon Dec  2 20:02:47 2002'
 # To set you date check this: unixtimestamp.com
 Persistence.FileDate.SetModificationTime("test.txt", 1038848567)
