@@ -1,4 +1,4 @@
-# Harmful functions
+# Persistence functions
 
 ``` python
 import Persistence.Admin
