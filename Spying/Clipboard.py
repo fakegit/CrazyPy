@@ -1,23 +1,23 @@
 
 # Import modules
-import ctypes
+from ctypes import c_char_p, cdll, windll
 
-__strcpy = ctypes.cdll.msvcrt.strcpy
-__ocb = ctypes.windll.user32.OpenClipboard
-__ecb = ctypes.windll.user32.EmptyClipboard
-__gcd = ctypes.windll.user32.GetClipboardData
-__scd = ctypes.windll.user32.SetClipboardData
-__ccb = ctypes.windll.user32.CloseClipboard
-__ga = ctypes.windll.kernel32.GlobalAlloc
-__gl = ctypes.windll.kernel32.GlobalLock
-__gul = ctypes.windll.kernel32.GlobalUnlock
+__strcpy = cdll.msvcrt.strcpy
+__ocb = windll.user32.OpenClipboard
+__ecb = windll.user32.EmptyClipboard
+__gcd = windll.user32.GetClipboardData
+__scd = windll.user32.SetClipboardData
+__ccb = windll.user32.CloseClipboard
+__ga = windll.kernel32.GlobalAlloc
+__gl = windll.kernel32.GlobalLock
+__gul = windll.kernel32.GlobalUnlock
 __GMEM_DDESHARE = 0x2000
 
 """ Get text from clipboard """
 def Get():
   __ocb(None)
   pcontents = __gcd(1)
-  data = ctypes.c_char_p(pcontents).value
+  data = c_char_p(pcontents).value
   __ccb()
   return data.decode()
 
@@ -27,7 +27,7 @@ def Set(text):
   __ecb()
   hCd = __ga(__GMEM_DDESHARE, len(bytes(text, "ascii")) + 1)
   pchData = __gl(hCd)
-  __strcpy(ctypes.c_char_p(pchData), bytes(text, "ascii"))
+  __strcpy(c_char_p(pchData), bytes(text, "ascii"))
   __gul(hCd)
   __scd(1, hCd)
   __ccb()
