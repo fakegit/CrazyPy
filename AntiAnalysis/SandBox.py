@@ -1,24 +1,24 @@
 
 # Import modules
-import ctypes
+from ctypes import WinDLL, wintypes
 
 """ Detect sanbox """
 def Check():
     # List
     sandbox_dll_list = (
-        "SbieDll.dll",
-        "SxIn.dll",
-        "Sf2.dll",
-        "snxhk.dll",
-        "cmdvrt32.dll"
+        "SbieDll",
+        "SxIn",
+        "Sf2",
+        "snxhk",
+        "cmdvrt32"
     )
     # Kernel32
-    kernel32 = ctypes.WinDLL('kernel32', use_last_error=True)
-    kernel32.GetModuleHandleW.restype = ctypes.wintypes.HMODULE
-    kernel32.GetModuleHandleW.argtypes = [ctypes.wintypes.LPCWSTR]
+    kernel32 = WinDLL('kernel32', use_last_error=True)
+    kernel32.GetModuleHandleW.restype = wintypes.HMODULE
+    kernel32.GetModuleHandleW.argtypes = [wintypes.LPCWSTR]
     # Check
     for dll in sandbox_dll_list:
-        hMod = kernel32.GetModuleHandleW(dll)
+        hMod = kernel32.GetModuleHandleW(dll + ".dll")
         if hMod == None:
             continue
         else:
