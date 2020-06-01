@@ -5,6 +5,7 @@ import Fun.Cdrom
 import Fun.Keyboard
 import Fun.Mouse
 import Fun.Speak
+import Fun.Screen
 import Fun.Url
 import Fun.Wallpaper
 import Fun.Windows
@@ -24,6 +25,9 @@ Fun.Mouse.Click()
 
 # Text to speech
 Fun.Speak.Speak("Hello world")
+
+# Rotate screen ("0", "90", "180", "270)
+Fun.Screen.Rotate("180")
 
 # Open url on browser
 Fun.Url.Open("google.com")
